@@ -58,3 +58,17 @@ const kSelectWasteHeaderDropDownOptionText= TextStyle(
     fontFamily: 'Raleway',
     fontSize: 15,
     fontStyle: FontStyle.normal);
+
+const kScheduleDetailsText= TextStyle(
+    color: kcIconGrey,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Raleway',
+    fontSize: 13,
+    fontStyle: FontStyle.normal);
+
+const kScheduleDetailsItemText = TextStyle(
+    color: kcGreyscale,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Raleway',
+    fontSize: 14,
+    fontStyle: FontStyle.normal);

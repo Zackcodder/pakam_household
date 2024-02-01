@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pakam_household/constants/text_style.dart';
+import 'package:pakam_household/screens/schedule_details.dart';
 import 'package:pakam_household/screens/selected_waste_category.dart';
 
 import '../constants/colors.dart';
@@ -224,7 +225,7 @@ class _SchedulePickupScreenState extends State<SchedulePickupScreen> {
             ///continue button
             GestureDetector(
               onTap: () {
-                // Navigator.pushNamed(context, AddContactSuccessPage.id);
+                Navigator.pushNamed(context, ScheduleDetailsScreen.id);
               },
               child: Container(
                   margin: const EdgeInsets.only(bottom: 20, top: 16),

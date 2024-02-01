@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pakam_household/constants/colors.dart';
 import 'package:pakam_household/screens/home.dart';
 import 'package:pakam_household/screens/schedule.dart';
+import 'package:pakam_household/screens/schedule_details.dart';
+import 'package:pakam_household/screens/schedule_dropoff.dart';
 import 'package:pakam_household/screens/schedule_pickup.dart';
 import 'package:pakam_household/screens/selected_waste_category.dart';
 import 'package:pakam_household/screens/wallet.dart';
@@ -29,7 +31,9 @@ class MyApp extends StatelessWidget {
         ScheduleScreen.id: (context) => const ScheduleScreen(),
         WalletScreen.id: (context) => const WalletScreen(),
         SchedulePickupScreen.id: (context) => const SchedulePickupScreen(),
+        ScheduleDropOffScreen.id: (context) => const ScheduleDropOffScreen(),
         SelectWasteCategoryScreen.id: (context) => const SelectWasteCategoryScreen(),
+        ScheduleDetailsScreen.id: (context) => const ScheduleDetailsScreen(),
          },
     );
   }

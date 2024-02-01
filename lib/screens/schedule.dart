@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pakam_household/screens/schedule_dropoff.dart';
 import 'package:pakam_household/screens/schedule_pickup.dart';
 
 import '../constants/colors.dart';
@@ -17,6 +18,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kcBackgroundColor,
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Schedule Request', style: kScheduleHeader,),
@@ -55,13 +57,13 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         margin: const EdgeInsets.only(left: 23, right: 23, top: 40),
         child: ListView(
           children: [
-
             ///pickup
             GestureDetector(
               onTap: (){
-                Navigator.pushNamed(context, SchedulePickupScreen.id);},
+                Navigator.pushNamed(context, SchedulePickupScreen.id);
+                },
               child: Container(
-                margin: EdgeInsets.only(bottom: 16),
+                margin: const EdgeInsets.only(bottom: 16),
                 decoration: BoxDecoration(
                   color: kcWhite,
                   boxShadow: [
@@ -69,7 +71,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                       color: kcBoxShadow.withOpacity(0.1),
                       spreadRadius: 0,
                       blurRadius: 8,
-                      offset: Offset(0, 0), // Offset of the shadow
+                      offset: const Offset(0, 0), // Offset of the shadow
                     ),
                   ],
                   borderRadius: BorderRadius.circular(10),
@@ -91,46 +93,51 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                       ],
                     ),
                     Spacer(), // To push the arrow icon to the right
-                    Icon(Icons.arrow_forward),
+                    Icon(Icons.arrow_forward_ios),
                   ],
                 ),
               ),
             ),
 
             ///drop off
-            Container(
-              margin: EdgeInsets.only(bottom: 16),
-              decoration: BoxDecoration(
-                color: kcWhite,
-                boxShadow: [
-                  BoxShadow(
-                    color: kcBoxShadow.withOpacity(0.1),
-                    spreadRadius: 0,
-                    blurRadius: 8,
-                    offset: Offset(0, 0), // Offset of the shadow
-                  ),
-                ],
-                borderRadius: BorderRadius.circular(10),
-              ),
-              padding: const EdgeInsets.all(16.0),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CircleAvatar(
-                    backgroundColor: kcGreen,
-                    child: Icon(Icons.location_pin, color: Colors.white, size: 20,),
-                  ),
-                  SizedBox(width: 16.0),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Schedule Drop-off', style: kScheduleType),
-                      Text('Request for waste drop-off at a goal', style:kScheduleTypeSub),
-                    ],
-                  ),
-                  Spacer(), // To push the arrow icon to the right
-                  Icon(Icons.arrow_forward),
-                ],
+            GestureDetector(
+              onTap: (){
+                Navigator.pushNamed(context, ScheduleDropOffScreen.id);
+                },
+              child: Container(
+                margin: const EdgeInsets.only(bottom: 16),
+                decoration: BoxDecoration(
+                  color: kcWhite,
+                  boxShadow: [
+                    BoxShadow(
+                      color: kcBoxShadow.withOpacity(0.1),
+                      spreadRadius: 0,
+                      blurRadius: 8,
+                      offset: const Offset(0, 0), // Offset of the shadow
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.all(16.0),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: kcGreen,
+                      child: Icon(Icons.location_pin, color: Colors.white, size: 20,),
+                    ),
+                    SizedBox(width: 16.0),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Schedule Drop-off', style: kScheduleType),
+                        Text('Request for waste drop-off at a goal', style:kScheduleTypeSub),
+                      ],
+                    ),
+                    Spacer(), // To push the arrow icon to the right
+                    Icon(Icons.arrow_forward_ios),
+                  ],
+                ),
               ),
             ),
           ],
