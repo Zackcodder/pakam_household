@@ -17,19 +17,22 @@ class ScheduleDetailsScreen extends StatelessWidget {
           'Schedule Details',
           style: kScheduleHeader,
         ),
-        leading: Container(
+        leading:  Container(
           margin: const EdgeInsets.only(left: 5),
           height: 2,
           width: 2,
-          child: const Center(
+          child:  Center(
             child: CircleAvatar(
               child: Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: Icon(
+                padding: const EdgeInsets.only(left: 5),
+                child: IconButton(onPressed: (){
+                  Navigator.pop(context);
+                }, icon:
+                const Icon(
                   Icons.arrow_back_ios,
                   size: 20,
                   color: kcIconGrey,
-                ),
+                )),
               ),
             ),
           ),

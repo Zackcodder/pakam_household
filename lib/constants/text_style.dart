@@ -72,3 +72,24 @@ const kScheduleDetailsItemText = TextStyle(
     fontFamily: 'Raleway',
     fontSize: 14,
     fontStyle: FontStyle.normal);
+
+const kBottomSheetHeaderText= TextStyle(
+    color: kcGreyscale,
+    fontWeight: FontWeight.w700,
+    fontFamily: 'Raleway',
+    fontSize: 18,
+    fontStyle: FontStyle.normal);
+
+const kBottomSheetHeaderBodyText= TextStyle(
+    color: kcIconGrey,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Raleway',
+    fontSize: 14,
+    fontStyle: FontStyle.normal);
+
+const kBottomSheetHeaderBodyValueText= TextStyle(
+    color: kcGreyscale,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Raleway',
+    fontSize: 14,
+    fontStyle: FontStyle.normal);
