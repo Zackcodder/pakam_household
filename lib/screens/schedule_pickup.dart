@@ -438,7 +438,8 @@ class _SchedulePickupScreenState extends State<SchedulePickupScreen> {
                 subtitle: const Text('Select your category',
                     style: kSchedulePickupTextFieldHint),
                 trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, SelectWasteCategoryScreen.id);},
                   icon: const Icon(Icons.keyboard_arrow_down_outlined),
                 ),
               ),

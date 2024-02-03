@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pakam_household/screens/schedule.dart';
 import 'package:pakam_household/screens/selected_waste_category.dart';
@@ -146,7 +147,7 @@ class _DropOffScheduleDetailsScreenState extends State<DropOffScheduleDetailsScr
                           ///drop off location
                           Container(
                             padding: const EdgeInsets.all(10),
-                            margin: EdgeInsets.only(bottom: 25),
+                            margin: const EdgeInsets.only(bottom: 25),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: kcBackgroundColor,
@@ -344,7 +345,7 @@ class _DropOffScheduleDetailsScreenState extends State<DropOffScheduleDetailsScr
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        Future.delayed(Duration(seconds: 5), () {
+        Future.delayed(const Duration(seconds: 5), () {
           Navigator.pop(context); // Close the submitting dialog after 5 seconds
           _showSuccessDialog(); // Show the success dialog
         });
@@ -452,7 +453,7 @@ class _DropOffScheduleDetailsScreenState extends State<DropOffScheduleDetailsScr
             ///drop off location details
             Container(
               padding: const EdgeInsets.all(10),
-              margin: EdgeInsets.only(bottom: 25),
+              margin: const EdgeInsets.only(bottom: 25),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: kcDeepGreen,
@@ -527,93 +528,99 @@ class _DropOffScheduleDetailsScreenState extends State<DropOffScheduleDetailsScr
                 subtitle: const Text('Select your category',
                     style: kSchedulePickupTextFieldHint),
                 trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, SelectWasteCategoryScreen.id);},
                   icon: const Icon(Icons.keyboard_arrow_down_outlined),
                 ),
               ),
             ),
+
+
             ///Waste
-            Text('Waste Quantity', style: kScheduleType,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ///1-5bags
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        setState(() {
-                          isCheckboxChecked = !isCheckboxChecked;
-                        });
-                      },
-                      icon: Icon(
-                        isCheckboxChecked
-                            ? Icons.radio_button_checked
-                            : Icons.radio_button_unchecked,
-                        color: isCheckboxChecked ? kcDeepGreen : kcGreyscale,
+            const Text('Waste Quantity', style: kScheduleType,),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ///1-5bags
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isCheckboxChecked = !isCheckboxChecked;
+                          });
+                        },
+                        icon: Icon(
+                          isCheckboxChecked
+                              ? Icons.radio_button_checked
+                              : Icons.radio_button_unchecked,
+                          color: isCheckboxChecked ? kcDeepGreen : kcGreyscale,
+                        ),
                       ),
-                    ),
-                    const Text(
-                      '1-5 bags',
-                      style: kWasteQuantityText,
-                    ),
-                  ],
-                ),
+                      const Text(
+                        '1-5 bags',
+                        style: kWasteQuantityText,
+                      ),
+                    ],
+                  ),
 
-                ///5-10bags
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        setState(() {
-                          isCheckboxChecked1 = !isCheckboxChecked1;
-                        });
-                      },
-                      icon: Icon(
-                        isCheckboxChecked1
-                            ? Icons.radio_button_checked
-                            : Icons.radio_button_unchecked,
-                        color: isCheckboxChecked1 ? kcDeepGreen : kcGreyscale,
+                  ///5-10bags
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isCheckboxChecked1 = !isCheckboxChecked1;
+                          });
+                        },
+                        icon: Icon(
+                          isCheckboxChecked1
+                              ? Icons.radio_button_checked
+                              : Icons.radio_button_unchecked,
+                          color: isCheckboxChecked1 ? kcDeepGreen : kcGreyscale,
+                        ),
                       ),
-                    ),
-                    const Text(
-                      '5-10 bags',
-                      style: kWasteQuantityText,
-                    ),
-                  ],
-                ),
+                      const Text(
+                        '5-10 bags',
+                        style: kWasteQuantityText,
+                      ),
+                    ],
+                  ),
 
-                ///10-15bags
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        setState(() {
-                          isCheckboxChecked2 = !isCheckboxChecked2;
-                        });
-                      },
-                      icon: Icon(
-                        isCheckboxChecked2
-                            ? Icons.radio_button_checked
-                            : Icons.radio_button_unchecked,
-                        color: isCheckboxChecked2 ? kcDeepGreen : kcGreyscale,
+                  ///10-15bags
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isCheckboxChecked2 = !isCheckboxChecked2;
+                          });
+                        },
+                        icon: Icon(
+                          isCheckboxChecked2
+                              ? Icons.radio_button_checked
+                              : Icons.radio_button_unchecked,
+                          color: isCheckboxChecked2 ? kcDeepGreen : kcGreyscale,
+                        ),
                       ),
-                    ),
-                    const Text(
-                      '10-15 bags',
-                      style: kWasteQuantityText,
-                    ),
-                  ],
-                ),
-              ],
+                      const Text(
+                        '10-15 bags',
+                        style: kWasteQuantityText,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
 
             ///if other
             Container(
-              margin: EdgeInsets.only(top: 20, bottom: 20),
+              margin: const EdgeInsets.only(top: 20, bottom: 20),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.green),
                 borderRadius: BorderRadius.circular(8.0),
