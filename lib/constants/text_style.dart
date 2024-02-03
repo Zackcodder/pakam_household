@@ -73,6 +73,13 @@ const kScheduleDetailsItemText = TextStyle(
     fontSize: 14,
     fontStyle: FontStyle.normal);
 
+const kWasteQuantityText = TextStyle(
+    color: kcIconGrey,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Raleway',
+    fontSize: 14,
+    fontStyle: FontStyle.normal);
+
 const kBottomSheetHeaderText= TextStyle(
     color: kcGreyscale,
     fontWeight: FontWeight.w700,
@@ -92,4 +99,11 @@ const kBottomSheetHeaderBodyValueText= TextStyle(
     fontWeight: FontWeight.w500,
     fontFamily: 'Raleway',
     fontSize: 14,
+    fontStyle: FontStyle.normal);
+
+const kDropOffDetailsBodyText= TextStyle(
+    color: kcWhite,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Raleway',
+    fontSize: 11,
     fontStyle: FontStyle.normal);

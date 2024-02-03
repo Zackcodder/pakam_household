@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pakam_household/constants/text_style.dart';
+import 'package:pakam_household/screens/schedule.dart';
 import 'package:pakam_household/screens/schedule_details.dart';
 import 'package:pakam_household/screens/selected_waste_category.dart';
 
@@ -57,9 +58,10 @@ class _SchedulePickupScreenState extends State<SchedulePickupScreen> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     IconButton(
-                      icon: const Icon(Icons.cancel),
+                      icon: const Icon(Icons.cancel, color: kcIconGrey,),
                       onPressed: () {
                         Navigator.pop(context);
+                        Navigator.pushNamed(context, ScheduleScreen.id);
                       },
                     ),
                   ],
@@ -90,14 +92,6 @@ class _SchedulePickupScreenState extends State<SchedulePickupScreen> {
                       fontStyle: FontStyle.normal),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 16.0),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    _navigateToScheduleDetails();
-                  },
-                  child: const Text('OK'),
-                ),
               ],
             ),
           ),
@@ -116,8 +110,6 @@ class _SchedulePickupScreenState extends State<SchedulePickupScreen> {
           return Container(
             padding: const EdgeInsets.all(20.0),
             child: ListView(
-              // crossAxisAlignment: CrossAxisAlignment.stretch,
-              // mainAxisSize: MainAxisSize.min,
               children: [
                 ///header and cancel button
                 Row(
@@ -282,9 +274,8 @@ class _SchedulePickupScreenState extends State<SchedulePickupScreen> {
                 ///confirm button
                 GestureDetector(
                   onTap: () {
-                    _showSubmittingDialog;
-                    // Implement your logic to confirm the request
                     Navigator.pop(context);
+                     _showSubmittingDialog();
                   },
                   child: Container(
                       margin: const EdgeInsets.only(bottom: 20, top: 16),
@@ -314,11 +305,16 @@ class _SchedulePickupScreenState extends State<SchedulePickupScreen> {
     );
   }
 
-  ///submitting request
+  ///submitting and cancel request
   _showSubmittingDialog() {
     showDialog(
       context: context,
       builder: (BuildContext context) {
+        Future.delayed(Duration(seconds: 5), () {
+          Navigator.pop(context); // Close the submitting dialog after 5 seconds
+          _showSuccessDialog(); // Show the success dialog
+        });
+
         return Dialog(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.0),
@@ -358,7 +354,7 @@ class _SchedulePickupScreenState extends State<SchedulePickupScreen> {
                       ),
                       child: const Center(
                         child: Text(
-                          'Confirm Request',
+                          'Cancel Request',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
@@ -596,7 +592,6 @@ class _SchedulePickupScreenState extends State<SchedulePickupScreen> {
             GestureDetector(
               onTap: () {
                 _showConfirmationSheet();
-                // Navigator.pushNamed(context, ScheduleDetailsScreen.id);
               },
               child: Container(
                   margin: const EdgeInsets.only(bottom: 20, top: 16),

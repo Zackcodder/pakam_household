@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pakam_household/screens/dropoff_loading.dart';
 import 'package:pakam_household/screens/schedule_dropoff.dart';
 import 'package:pakam_household/screens/schedule_pickup.dart';
 
@@ -102,7 +103,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
             ///drop off
             GestureDetector(
               onTap: (){
-                Navigator.pushNamed(context, ScheduleDropOffScreen.id);
+                Navigator.pushNamed(context, DropOffLoadingScreen.id);
                 },
               child: Container(
                 margin: const EdgeInsets.only(bottom: 16),

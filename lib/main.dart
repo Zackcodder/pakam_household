@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pakam_household/constants/colors.dart';
+import 'package:pakam_household/screens/drop_off_schedule_details.dart';
+import 'package:pakam_household/screens/dropoff_loading.dart';
 import 'package:pakam_household/screens/home.dart';
 import 'package:pakam_household/screens/schedule.dart';
 import 'package:pakam_household/screens/schedule_details.dart';
@@ -34,6 +36,8 @@ class MyApp extends StatelessWidget {
         ScheduleDropOffScreen.id: (context) => const ScheduleDropOffScreen(),
         SelectWasteCategoryScreen.id: (context) => const SelectWasteCategoryScreen(),
         ScheduleDetailsScreen.id: (context) => const ScheduleDetailsScreen(),
+        DropOffLoadingScreen.id: (context) => const DropOffLoadingScreen(),
+        DropOffScheduleDetailsScreen.id: (context) => const DropOffScheduleDetailsScreen(),
          },
     );
   }

@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pakam_household/screens/drop_off_schedule_details.dart';
+import 'package:pakam_household/screens/schedule.dart';
 
 import '../constants/colors.dart';
 import '../constants/text_style.dart';
 
 class ScheduleDropOffScreen extends StatefulWidget {
-  static String id = 'schedule_dropoff_screen';
+  static String id = 'schedule_drop_off_screen';
   const ScheduleDropOffScreen({Key? key}) : super(key: key);
 
   @override
@@ -30,7 +32,7 @@ class _ScheduleDropOffScreenState extends State<ScheduleDropOffScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 5),
                 child: IconButton(onPressed: (){
-                  Navigator.pop(context);
+                  Navigator.pushNamed(context, ScheduleScreen.id);
                 }, icon:
                 const Icon(
                   Icons.arrow_back_ios,
@@ -59,7 +61,7 @@ class _ScheduleDropOffScreenState extends State<ScheduleDropOffScreen> {
                 color: kcWhite,
                 child: GestureDetector(
                   onTap: () {
-                    // Navigator.pushNamed(context, SalesContactDetails.id);
+                    Navigator.pushNamed(context, DropOffScheduleDetailsScreen.id);
                   },
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
@@ -96,15 +98,17 @@ class _ScheduleDropOffScreenState extends State<ScheduleDropOffScreen> {
                                     Text("3, Olaniyi Stresst, idi Oro, Lagos")
                                   ],
                                 ),
+                                SizedBox(height: 5,),
 
                                 ///phone number
                                 Row(
                                   children: [
                                     Icon(Icons.phone, color: kcGreen, size: 15,),
                                     SizedBox(width: 5,),
-                                    Text("3, Olaniyi Stresst, idi Oro, Lagos")
+                                    Text("0908 790 8769, 0112 789 8789")
                                   ],
                                 ),
+                                SizedBox(height: 5,),
 
                                 ///time
                                 Row(
@@ -114,13 +118,19 @@ class _ScheduleDropOffScreenState extends State<ScheduleDropOffScreen> {
                                     Text("9:00am - 4:00pm")
                                   ],
                                 ),
+                                SizedBox(height: 5,),
 
                                 ///item
                                 Row(
                                   children: [
                                     Icon(Icons.business_center_outlined, color: kcGreen, size: 15,),
                                     SizedBox(width: 5,),
-                                    Text("9:00am - 4:00pm")
+                                    Text("Can, Pet Bottle, Wood, Nylon",style: TextStyle(
+                                        color: kcDeepGreen,
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily: 'Raleway',
+                                        fontSize: 11,
+                                        fontStyle: FontStyle.normal),)
                                   ],
                                 ),
                               ],
