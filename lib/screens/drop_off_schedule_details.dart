@@ -6,6 +6,7 @@ import 'package:pakam_household/screens/selected_waste_category.dart';
 import '../constants/colors.dart';
 import 'package:intl/intl.dart';
 import '../constants/text_style.dart';
+import '../main.dart';
 
 class DropOffScheduleDetailsScreen extends StatefulWidget {
   static String id = 'schedule_drop_off_details_screen';
@@ -216,29 +217,10 @@ class _DropOffScheduleDetailsScreenState extends State<DropOffScheduleDetailsScr
                                   borderRadius: BorderRadius.circular(
                                       50), // Optionally, add rounded corners
                                 ),
-                                child: const Center(
+                                child:  Center(
                                   child: Text(
-                                    'Can',
-                                    style: TextStyle(
-                                        color: kcWhite,
-                                        fontWeight: FontWeight.w500,
-                                        fontFamily: 'Raleway',
-                                        fontSize: 12,
-                                        fontStyle: FontStyle.normal),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  color: kcIconGrey,
-                                  borderRadius: BorderRadius.circular(
-                                      50), // Optionally, add rounded corners
-                                ),
-                                child: const Center(
-                                  child: Text(
-                                    'Pet Bottle',
-                                    style: TextStyle(
+                                    selectedWasteCategory ??'',
+                                    style: const TextStyle(
                                         color: kcWhite,
                                         fontWeight: FontWeight.w500,
                                         fontFamily: 'Raleway',
@@ -252,15 +234,15 @@ class _DropOffScheduleDetailsScreenState extends State<DropOffScheduleDetailsScr
                           const SizedBox(height: 20.0),
 
                           ///waste quantity
-                          Text.rich(
+                          const Text.rich(
                             TextSpan(
                               children: [
-                                const TextSpan(
+                                TextSpan(
                                   text: 'Waste Quantity:  ',
                                   style: kBottomSheetHeaderBodyText,
                                 ),
                                 TextSpan(
-                                  text: _locationController.text,
+                                  text: '1-5 kg',
                                   style: kBottomSheetHeaderBodyValueText,
                                 ),
                               ],
@@ -345,7 +327,7 @@ class _DropOffScheduleDetailsScreenState extends State<DropOffScheduleDetailsScr
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        Future.delayed(const Duration(seconds: 5), () {
+        Future.delayed(const Duration(seconds: 3), () {
           Navigator.pop(context); // Close the submitting dialog after 5 seconds
           _showSuccessDialog(); // Show the success dialog
         });
@@ -525,7 +507,8 @@ class _DropOffScheduleDetailsScreenState extends State<DropOffScheduleDetailsScr
                   // _selectDate(context);
                 },
                 title: const Text('Category', style: kSchedulePickupTextField),
-                subtitle: const Text('Select your category',
+                subtitle:  Text(
+                    selectedWasteCategory ?? 'Select your category',
                     style: kSchedulePickupTextFieldHint),
                 trailing: IconButton(
                   onPressed: () {

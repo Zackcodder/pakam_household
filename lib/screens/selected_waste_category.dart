@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
 import '../constants/text_style.dart';
+import '../main.dart';
 
 class SelectWasteCategoryScreen extends StatefulWidget {
   static String id = 'selected_waste_category_screen';
@@ -176,6 +177,9 @@ class _SelectWasteCategoryScreenState extends State<SelectWasteCategoryScreen> w
                         return GestureDetector(
                           onTap: () {
                             setState(() {
+                              isListVisible = !isListVisible;
+                              // Set the selected waste category
+                              selectedWasteCategory = item;
                               if (isSelected) {
                                 selectedPetBottles.remove(item);
                               } else {

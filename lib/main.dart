@@ -10,12 +10,14 @@ import 'package:pakam_household/screens/schedule_pickup.dart';
 import 'package:pakam_household/screens/selected_waste_category.dart';
 import 'package:pakam_household/screens/wallet.dart';
 
+String? selectedWasteCategory;
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
   // This widget is the root of your application.
   @override

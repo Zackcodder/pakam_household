@@ -257,7 +257,7 @@ class ScheduleDetailsScreen extends StatelessWidget {
                 ///delete
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, ScheduleScreen.id);
+                    Navigator.pop(context);
                   },
                   child: Container(
                       margin: const EdgeInsets.only(bottom: 20,),
@@ -285,7 +285,7 @@ class ScheduleDetailsScreen extends StatelessWidget {
                 ///missed
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, ScheduleScreen.id);
+                    Navigator.pop(context);
                   },
                   child: Container(
                       margin: const EdgeInsets.only(bottom: 20,),

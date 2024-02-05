@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pakam_household/screens/dropoff_loading.dart';
+import 'package:pakam_household/screens/schedule_details.dart';
 import 'package:pakam_household/screens/schedule_dropoff.dart';
 import 'package:pakam_household/screens/schedule_pickup.dart';
 
@@ -22,7 +23,10 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       backgroundColor: kcBackgroundColor,
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Schedule Request', style: kScheduleHeader,),
+        title: const Text(
+          'Schedule Request',
+          style: kScheduleHeader,
+        ),
         leading: Container(
           margin: const EdgeInsets.only(left: 5),
           height: 2,
@@ -32,24 +36,28 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               child: Padding(
                 padding: EdgeInsets.only(left: 10),
                 child: Icon(
-                Icons.arrow_back_ios,
+                  Icons.arrow_back_ios,
                   size: 20,
                   color: kcIconGrey,
-                            ),
+                ),
               ),
             ),
           ),
         ),
-        actions: const [
+        actions: [
           CircleAvatar(
             child: Center(
-              child: Icon
-                (Icons.notifications,
-                color: kcBlack,
-              ),
+              child: IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, ScheduleDetailsScreen.id);
+                  },
+                  icon: const Icon(
+                    Icons.notifications,
+                    color: kcBlack,
+                  )),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
         ],
@@ -60,9 +68,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           children: [
             ///pickup
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 Navigator.pushNamed(context, SchedulePickupScreen.id);
-                },
+              },
               child: Container(
                 margin: const EdgeInsets.only(bottom: 16),
                 decoration: BoxDecoration(
@@ -83,14 +91,19 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                   children: [
                     CircleAvatar(
                       backgroundColor: kcGreen,
-                      child: Icon(Icons.local_shipping_outlined, color: Colors.white, size: 20,),
+                      child: Icon(
+                        Icons.local_shipping_outlined,
+                        color: Colors.white,
+                        size: 20,
+                      ),
                     ),
                     SizedBox(width: 16.0),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('Schedule Pickup', style: kScheduleType),
-                        Text('Request for waste pickup at a goal', style:kScheduleTypeSub),
+                        Text('Request for waste pickup at a goal',
+                            style: kScheduleTypeSub),
                       ],
                     ),
                     Spacer(), // To push the arrow icon to the right
@@ -102,9 +115,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
 
             ///drop off
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 Navigator.pushNamed(context, DropOffLoadingScreen.id);
-                },
+              },
               child: Container(
                 margin: const EdgeInsets.only(bottom: 16),
                 decoration: BoxDecoration(
@@ -125,14 +138,19 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                   children: [
                     CircleAvatar(
                       backgroundColor: kcGreen,
-                      child: Icon(Icons.location_pin, color: Colors.white, size: 20,),
+                      child: Icon(
+                        Icons.location_pin,
+                        color: Colors.white,
+                        size: 20,
+                      ),
                     ),
                     SizedBox(width: 16.0),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('Schedule Drop-off', style: kScheduleType),
-                        Text('Request for waste drop-off at a goal', style:kScheduleTypeSub),
+                        Text('Request for waste drop-off at a goal',
+                            style: kScheduleTypeSub),
                       ],
                     ),
                     Spacer(), // To push the arrow icon to the right

@@ -7,6 +7,7 @@ import 'package:pakam_household/screens/schedule_details.dart';
 import 'package:pakam_household/screens/selected_waste_category.dart';
 
 import '../constants/colors.dart';
+import '../main.dart';
 
 class SchedulePickupScreen extends StatefulWidget {
   static String id = 'schedule_pickup_screen';
@@ -158,10 +159,10 @@ class _SchedulePickupScreenState extends State<SchedulePickupScreen> {
                               borderRadius: BorderRadius.circular(
                                   50), // Optionally, add rounded corners
                             ),
-                            child: const Center(
+                            child:  Center(
                               child: Text(
-                                'Can',
-                                style: TextStyle(
+                                selectedWasteCategory ?? '',
+                                style: const TextStyle(
                                     color: kcWhite,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: 'Raleway',
@@ -310,7 +311,7 @@ class _SchedulePickupScreenState extends State<SchedulePickupScreen> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        Future.delayed(Duration(seconds: 5), () {
+        Future.delayed(const Duration(seconds: 3), () {
           Navigator.pop(context); // Close the submitting dialog after 5 seconds
           _showSuccessDialog(); // Show the success dialog
         });
@@ -435,7 +436,8 @@ class _SchedulePickupScreenState extends State<SchedulePickupScreen> {
                   // _selectDate(context);
                 },
                 title: const Text('Category', style: kSchedulePickupTextField),
-                subtitle: const Text('Select your category',
+                subtitle:  Text(
+                    selectedWasteCategory ?? 'Select your category',
                     style: kSchedulePickupTextFieldHint),
                 trailing: IconButton(
                   onPressed: () {
